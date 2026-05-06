@@ -95,7 +95,7 @@ const OrderDetails = async ({ params }) => {
                                                 <td className="text-end py-2">{orderData?.data?.state}</td>
                                             </tr>
                                             <tr>
-                                                <td className="font-medium py-2">City</td>
+                                                <td className="font-medium py-2">Complete address</td>
                                                 <td className="text-end py-2">{orderData?.data?.city}</td>
                                             </tr>
                                             <tr>
@@ -106,10 +106,10 @@ const OrderDetails = async ({ params }) => {
                                                 <td className="font-medium py-2">Landmark</td>
                                                 <td className="text-end py-2">{orderData?.data?.landmark}</td>
                                             </tr>
-                                            <tr>
-                                                <td className="font-medium py-2">Order note</td>
-                                                <td className="text-end py-2">{orderData?.data?.ordernote || '---'}</td>
-                                            </tr>
+                                            {/* <tr>
+                                                <td className="font-medium py-2">Complete Address</td>
+                                                <td className="text-end py-2">{`${orderData?.data?.name}, ${orderData?.data?.landmark}, ${orderData?.data?.city}, ${orderData?.data?.state} ${orderData?.data?.pincode}, ${orderData?.data?.country}`}</td>
+                                            </tr> */}
 
                                         </tbody>
                                     </table>

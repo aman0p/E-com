@@ -152,7 +152,7 @@ const OrderDetails = ({ params }) => {
                                                     <td className="text-end py-2">{orderData?.state}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td className="font-medium py-2">City</td>
+                                                    <td className="font-medium py-2">Complete Address</td>
                                                     <td className="text-end py-2">{orderData?.city}</td>
                                                 </tr>
                                                 <tr>
@@ -162,10 +162,6 @@ const OrderDetails = ({ params }) => {
                                                 <tr>
                                                     <td className="font-medium py-2">Landmark</td>
                                                     <td className="text-end py-2">{orderData?.landmark}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td className="font-medium py-2">Order note</td>
-                                                    <td className="text-end py-2">{orderData?.ordernote || '---'}</td>
                                                 </tr>
 
                                             </tbody>

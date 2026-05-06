@@ -377,7 +377,7 @@ const Checkout = () => {
                                             render={({ field }) => (
                                                 <FormItem>
                                                     <FormControl>
-                                                        <Input placeholder="City*" {...field} />
+                                                        <Input placeholder="Complete address*" {...field} />
                                                     </FormControl>
                                                     <FormMessage />
                                                 </FormItem>
@@ -410,22 +410,6 @@ const Checkout = () => {
                                                 <FormItem>
                                                     <FormControl>
                                                         <Input placeholder="Landmark*" {...field} />
-                                                    </FormControl>
-                                                    <FormMessage />
-                                                </FormItem>
-                                            )}
-                                        >
-
-                                        </FormField>
-                                    </div>
-                                    <div className='mb-3 col-span-2'>
-                                        <FormField
-                                            control={orderForm.control}
-                                            name='ordernote'
-                                            render={({ field }) => (
-                                                <FormItem>
-                                                    <FormControl>
-                                                        <Textarea placeholder="Enter Address Here" />
                                                     </FormControl>
                                                     <FormMessage />
                                                 </FormItem>
