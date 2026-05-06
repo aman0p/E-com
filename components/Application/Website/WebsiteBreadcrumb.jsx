@@ -4,7 +4,7 @@ import React from 'react'
 
 const WebsiteBreadcrumb = ({ props }) => {
     return (
-        <div className="py-10 flex justify-center items-center bg-[url('/assets/images/page-title.png')] bg-cover bg-center">
+        <div className="py-10 flex justify-center items-center bg-[url('/assets/images/Page-Title.png')] bg-cover bg-center">
 
             <div>
                 <h1 className='text-2xl font-semibold mb-2 text-center'>{props.title}</h1>

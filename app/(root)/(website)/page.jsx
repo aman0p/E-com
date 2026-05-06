@@ -2,20 +2,20 @@ import MainSlider from '@/components/Application/Website/MainSlider'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import banner1 from '@/public/assets/images/banner1.png'
-import banner2 from '@/public/assets/images/banner2.png'
+import banner1 from '@/public/assets/images/Banner-1.png'
+import banner2 from '@/public/assets/images/Banner-2.png'
 import FeaturedProduct from '@/components/Application/Website/FeaturedProduct'
-import advertisingBanner from '@/public/assets/images/advertising-banner.png'
+import advertisingBanner from '@/public/assets/images/add-banner.png'
 import Testimonial from '@/components/Application/Website/Testimonial'
-
 import { GiReturnArrow } from "react-icons/gi";
 import { FaShippingFast } from "react-icons/fa";
 import { BiSupport } from "react-icons/bi";
 import { TbRosetteDiscountFilled } from "react-icons/tb";
+import { USER_DASHBOARD, WEBSITE_HOME, WEBSITE_LOGIN, WEBSITE_REGISTER, WEBSITE_SHOP } from '@/routes/WebsiteRoute'
 
 const Home = () => {
     return (
-        <>
+        <div>
             <section>
                 <MainSlider />
             </section>
@@ -23,7 +23,7 @@ const Home = () => {
                 <div className='grid grid-cols-2 sm:gap-10 gap-2'>
 
                     <div className='border rounded-lg overflow-hidden'>
-                        <Link href="" >
+                        <Link href={WEBSITE_SHOP} >
                             <Image
                                 src={banner1.src}
                                 width={banner1.width}
@@ -34,7 +34,7 @@ const Home = () => {
                         </Link>
                     </div>
                     <div className='border rounded-lg overflow-hidden'>
-                        <Link href="" >
+                        <Link href={WEBSITE_SHOP} >
                             <Image
                                 src={banner2.src}
                                 width={banner2.width}
@@ -95,7 +95,7 @@ const Home = () => {
                 </div>
             </section>
 
-        </>
+        </div>
     )
 }
 

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import logo from '@/public/assets/images/logo-black.png'
+import logo from '@/public/assets/images/Logo-White.png'
 import Link from 'next/link'
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlinePhone } from "react-icons/md";
@@ -15,7 +15,7 @@ import { USER_DASHBOARD, WEBSITE_HOME, WEBSITE_LOGIN, WEBSITE_REGISTER, WEBSITE_
 const Footer = () => {
     return (
         <footer className='bg-gray-50 border-t'>
-            <div className='grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-10 py-10 lg:px-32 px-4'>
+            <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-10 py-10 lg:px-32 px-4'>
 
                 <div className='lg:col-span-1 md:col-span-2 col-span-1'>
                     <Image
@@ -30,27 +30,6 @@ const Footer = () => {
                     </p>
                 </div>
 
-
-                <div>
-                    <h4 className='text-xl font-bold uppercase mb-5'>Categories</h4>
-                    <ul>
-                        <li className='mb-2 text-gray-500'>
-                            <Link href={`${WEBSITE_SHOP}?category=t-shirts`}>T-shirt</Link>
-                        </li>
-                        <li className='mb-2 text-gray-500'>
-                            <Link href={`${WEBSITE_SHOP}?category=hoodies`}>Hoodies</Link>
-                        </li>
-                        <li className='mb-2 text-gray-500'>
-                            <Link href={`${WEBSITE_SHOP}?category=oversized`}>Oversized</Link>
-                        </li>
-                        <li className='mb-2 text-gray-500'>
-                            <Link href={`${WEBSITE_SHOP}?category=full-sleeves`}>Full Sleeves</Link>
-                        </li>
-                        <li className='mb-2 text-gray-500'>
-                            <Link href={`${WEBSITE_SHOP}?category=polo`}>Polo</Link>
-                        </li>
-                    </ul>
-                </div>
                 <div>
                     <h4 className='text-xl font-bold uppercase mb-5'>Userfull Links</h4>
                     <ul>
@@ -139,7 +118,7 @@ const Footer = () => {
 
 
             <div className='py-5 bg-gray-100' >
-                <p className='text-center'>© 2024 Estore. All Rights Reserved.</p>
+                <p className='text-center'>© 2026 myTechSathi. All Rights Reserved.</p>
             </div>
 
         </footer>

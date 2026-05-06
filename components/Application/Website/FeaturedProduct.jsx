@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import { IoIosArrowRoundForward } from "react-icons/io";
 import ProductBox from './ProductBox';
+import { USER_DASHBOARD, WEBSITE_HOME, WEBSITE_LOGIN, WEBSITE_REGISTER, WEBSITE_SHOP } from '@/routes/WebsiteRoute'
 
 const FeaturedProduct = async () => {
     let productData = null
@@ -18,7 +19,7 @@ const FeaturedProduct = async () => {
         <section className='lg:px-32 px-4 sm:py-10'>
             <div className='flex justify-between items-center mb-5'>
                 <h2 className='sm:text-4xl text-2xl font-semibold'>Featured Products</h2>
-                <Link href="" className='flex items-center gap-2 underline underline-offset-4 hover:text-primary'>
+                <Link href={WEBSITE_SHOP} className='flex items-center gap-2 underline underline-offset-4 hover:text-primary'>
                     View All
                     <IoIosArrowRoundForward />
                 </Link>
