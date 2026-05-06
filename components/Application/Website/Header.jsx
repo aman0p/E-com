@@ -3,7 +3,7 @@ import { USER_DASHBOARD, WEBSITE_HOME, WEBSITE_LOGIN, WEBSITE_SHOP } from '@/rou
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import logo from '@/public/assets/images/logo-black.png'
+import logo from '@/public/assets/images/Logo-White.png'
 import { IoIosSearch } from "react-icons/io";
 import Cart from './Cart'
 import { VscAccount } from "react-icons/vsc";

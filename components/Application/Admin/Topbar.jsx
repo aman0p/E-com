@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/button'
 import { RiMenu4Fill } from "react-icons/ri";
 import { useSidebar } from '@/components/ui/sidebar';
 import AdminSearch from './AdminSearch'
-import logoBlack from '@/public/assets/images/logo-black.png'
-import logoWhite from '@/public/assets/images/logo-white.png'
+import logoBlack from '@/public/assets/images/Logo-Black.png'
+import logoWhite from '@/public/assets/images/Logo-White.png'
 import Image from 'next/image'
 import AdminMobileSearch from './AdminMobileSearch'
 const Topbar = () => {
