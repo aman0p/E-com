@@ -9,6 +9,7 @@ const assistantFont = Assistant({
 })
 export const metadata = {
   title: "myTechsathi - Best Tech Store",
+  metadataBase: new URL('https://your-project-name.vercel.app'),
   description: "Buy laptops, gadgets, and accessories at the best price.",
   keywords: ["laptops", "gadgets", "tech store", "myTechsathi"],
   authors: [{ name: "myTechsathi" }],

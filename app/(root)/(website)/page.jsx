@@ -69,7 +69,7 @@ const Home = () => {
                             <GiReturnArrow size={30} />
                         </p>
                         <h3 className='text-xl font-semibold'>7-Days Returns</h3>
-                        <p>Risk-free shopping with easy returns.</p>
+                        <p>Risk-free shopping with easy returns and deployments.</p>
                     </div>
                     <div className='text-center'>
                         <p className='flex justify-center items-center mb-3'>
