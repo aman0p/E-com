@@ -4,11 +4,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Link from 'next/link';
-import { USER_DASHBOARD, WEBSITE_HOME, WEBSITE_LOGIN, WEBSITE_REGISTER, WEBSITE_SHOP } from '@/routes/WebsiteRoute'
+import { WEBSITE_SHOP } from '@/routes/WebsiteRoute'
 import slider1 from '@/public/assets/images/Slider-1.png'
-import slider2 from '@/public/assets/images/Slider-2.png'
-import slider3 from '@/public/assets/images/Slider-3.png'
-import slider4 from '@/public/assets/images/Slider-4.png'
+import slider2 from '@/public/assets/images/MainBanner-2.png'
+import slider3 from '@/public/assets/images/MainBanner-3.png'
+import slider4 from '@/public/assets/images/MainBanner-4.png'
 
 import Image from 'next/image';
 import { LuChevronRight } from "react-icons/lu";

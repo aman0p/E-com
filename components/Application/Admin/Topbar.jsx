@@ -7,7 +7,7 @@ import { RiMenu4Fill } from "react-icons/ri";
 import { useSidebar } from '@/components/ui/sidebar';
 import AdminSearch from './AdminSearch'
 import logoBlack from '@/public/assets/images/Logo-Black.png'
-import logoWhite from '@/public/assets/images/Logo-White.png'
+import logoWhite from '@/public/assets/images/NewLogo.png'
 import Image from 'next/image'
 import AdminMobileSearch from './AdminMobileSearch'
 const Topbar = () => {
@@ -18,7 +18,7 @@ const Topbar = () => {
 
             <div className='flex items-center md:hidden'>
                 <Image src={logoBlack.src} height={50} width={logoBlack.width} className="block dark:hidden h-[50px] w-auto" alt="logo dark" />
-                <Image src={logoWhite.src} height={50} width={logoWhite.width} className="hidden dark:block h-[50px] w-auto" alt="logo white" />
+                <Image src={logoWhite.src} height={40} width={logoWhite.width} className="hidden dark:block h-[40px] w-auto" alt="logo white" />
             </div>
             <div className='md:block hidden'>
                 <AdminSearch />

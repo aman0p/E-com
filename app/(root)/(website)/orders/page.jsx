@@ -4,8 +4,11 @@ import UserPanelLayout from '@/components/Application/Website/UserPanelLayout'
 import WebsiteBreadcrumb from '@/components/Application/Website/WebsiteBreadcrumb'
 import useFetch from '@/hooks/useFetch'
 import { WEBSITE_ORDER_DETAILS } from '@/routes/WebsiteRoute'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import imgPlaceholder from '@/public/assets/images/img-placeholder.webp'
+
 const breadCrumbData = {
     title: 'Orders',
     links: [{ label: 'Orders' }]
@@ -26,33 +29,46 @@ const Orders = () => {
                         {loading ?
                             <div className='text-center py-5'>Loading...</div>
                             :
-                            <div className='overflow-auto'>
+                            <div className='grid gap-4'>
+                                {orderData && orderData?.data?.map((order, i) => (
+                                    <Link key={order._id} href={WEBSITE_ORDER_DETAILS(order.order_id)} className='block'>
+                                        <div className='border rounded p-4 hover:bg-gray-50 hover:shadow-sm transition-all cursor-pointer'>
+                                            <div className='flex items-center justify-between mb-3'>
+                                                <div className='flex items-center gap-2'>
+                                                    <span className='text-xs font-semibold text-gray-800 bg-gray-100 px-2 py-0.5 rounded'>#{i + 1}</span>
+                                                    <span className='text-xs text-gray-400 font-mono'>{order.order_id}</span>
+                                                </div>
+                                                <span className='text-sm font-semibold'>
+                                                    {order.totalAmount.toLocaleString('en-IN', { style: 'currency', currency: 'INR' })}
+                                                </span>
+                                            </div>
+                                            <div className='flex items-center gap-3 overflow-x-auto'>
+                                                {order.products.map((product, idx) => (
+                                                    <div key={idx} className='flex items-center gap-2 flex-shrink-0'>
+                                                        <Image
+                                                            src={product.variantId?.media?.[0]?.secure_url || imgPlaceholder.src}
+                                                            width={40}
+                                                            height={40}
+                                                            alt={product.name}
+                                                            className='rounded object-cover w-[40px] h-[40px] border'
+                                                        />
+                                                        <div className='min-w-0'>
+                                                            <p className='text-sm font-medium line-clamp-1'>{product.name}</p>
+                                                            <p className='text-xs text-gray-500'>Qty: {product.qty}</p>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </Link>
+                                ))}
 
-                                <table className='w-full'>
-                                    <thead>
-                                        <tr>
-                                            <th className='text-start p-2 text-sm border-b text-nowrap text-gray-500'>Sr.No.</th>
-                                            <th className='text-start p-2 text-sm border-b text-nowrap text-gray-500'>Order id</th>
-                                            <th className='text-start p-2 text-sm border-b text-nowrap text-gray-500'>Total Item</th>
-                                            <th className='text-start p-2 text-sm border-b text-nowrap text-gray-500'>Amount</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        {orderData && orderData?.data?.map((order, i) => (
-                                            <tr key={order._id}>
-                                                <td className='text-start text-sm text-gray-500 p-2 font-bold'>{i + 1}</td>
-                                                <td className='text-start text-sm text-gray-500 p-2'><Link className='underline hover:text-blue-500 underline-offset-2' href={WEBSITE_ORDER_DETAILS(order.order_id)}>{order.order_id}</Link></td>
-                                                <td className='text-start text-sm text-gray-500 p-2 '>
-                                                    {order.products.length}
-                                                </td>
-                                                <td className='text-start text-sm text-gray-500 p-2 '>
-                                                    {order.totalAmount.toLocaleString('en-In', { style: 'currency', currency: 'INR' })}
-                                                </td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
+                                {orderData && orderData?.data?.length === 0 && (
+                                    <div className='text-center py-10 text-gray-400'>
+                                        <p className='text-lg font-medium'>No orders yet</p>
+                                        <p className='text-sm mt-1'>Your order history will appear here</p>
+                                    </div>
+                                )}
                             </div>
                         }
 
