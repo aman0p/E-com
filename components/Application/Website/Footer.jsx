@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import logo from '@/public/assets/images/Logo-White.png'
+import logo from '@/public/assets/images/NewLogo.png'
 import Link from 'next/link'
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlinePhone } from "react-icons/md";
@@ -23,7 +23,7 @@ const Footer = () => {
                         width={383}
                         height={146}
                         alt='logo'
-                        className='w-36 mb-2'
+                        className='w-[7.2rem] mb-2'
                     />
                     <p className='text-gray-500 text-sm'>
                         E-store is your trusted destination for quality and convenience. From fashion to essentials, we bring everything you need right to your doorstep. Shop smart, live better — only at E-store.

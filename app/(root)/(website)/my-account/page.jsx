@@ -2,12 +2,14 @@
 import UserPanelLayout from '@/components/Application/Website/UserPanelLayout'
 import WebsiteBreadcrumb from '@/components/Application/Website/WebsiteBreadcrumb'
 import useFetch from '@/hooks/useFetch';
-import { WEBSITE_ORDER_DETAILS } from '@/routes/WebsiteRoute';
+import { WEBSITE_CART, WEBSITE_ORDER_DETAILS, WEBSITE_PRODUCT_DETAILS } from '@/routes/WebsiteRoute';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { IoCartOutline } from "react-icons/io5";
 import { useSelector } from 'react-redux';
+import imgPlaceholder from '@/public/assets/images/img-placeholder.webp'
 
 const breadCrumbData = {
     title: 'Dashboard',
@@ -47,34 +49,75 @@ const MyAccount = () => {
                             </div>
                         </div>
 
+                        {/* Cart Items Section */}
+                        {cartStore?.count > 0 && (
+                            <div className='mt-5'>
+                                <div className='flex items-center justify-between mb-3'>
+                                    <h4 className='text-lg font-semibold'>Your Cart Items</h4>
+                                    <Link href={WEBSITE_CART} className='text-sm text-primary hover:underline underline-offset-2'>View Cart →</Link>
+                                </div>
+                                <div className='grid gap-3'>
+                                    {cartStore.products.map(product => (
+                                        <div key={product.variantId} className='flex items-center gap-4 border rounded p-3 hover:bg-gray-50 transition-colors'>
+                                            <Image
+                                                src={product.media || imgPlaceholder.src}
+                                                width={50}
+                                                height={50}
+                                                alt={product.name}
+                                                className='rounded object-cover w-[50px] h-[50px]'
+                                            />
+                                            <div className='flex-1 min-w-0'>
+                                                <h5 className='font-medium text-sm line-clamp-1'>
+                                                    <Link href={WEBSITE_PRODUCT_DETAILS(product.url)} className='hover:text-primary'>
+                                                        {product.name}
+                                                    </Link>
+                                                </h5>
+                                                <p className='text-xs text-gray-500'>
+                                                    {product.color} · {product.size} · Qty: {product.qty}
+                                                </p>
+                                            </div>
+                                            <div className='text-sm font-semibold text-nowrap'>
+                                                {(product.sellingPrice * product.qty).toLocaleString('en-IN', { style: 'currency', currency: 'INR' })}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Recent Orders Section */}
                         <div className='mt-5'>
                             <h4 className='text-lg font-semibold mb-3'>Recent Orders</h4>
-                            <div className='overflow-auto'>
-                                <table className='w-full'>
-                                    <thead>
-                                        <tr>
-                                            <th className='text-start p-2 text-sm border-b text-nowrap text-gray-500'>Sr.No.</th>
-                                            <th className='text-start p-2 text-sm border-b text-nowrap text-gray-500'>Order id</th>
-                                            <th className='text-start p-2 text-sm border-b text-nowrap text-gray-500'>Total Item</th>
-                                            <th className='text-start p-2 text-sm border-b text-nowrap text-gray-500'>Amount</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {dashboardData && dashboardData?.data?.recentOrders?.map((order, i) => (
-                                            <tr key={order._id}>
-                                                <td className='text-start text-sm text-gray-500 p-2 font-bold'>{i + 1}</td>
-                                                <td className='text-start text-sm text-gray-500 p-2'><Link className='underline hover:text-blue-500 underline-offset-2' href={WEBSITE_ORDER_DETAILS(order.order_id)}>{order.order_id}</Link></td>
-                                                <td className='text-start text-sm text-gray-500 p-2 '>
-                                                    {order.products.length}
-                                                </td>
-                                                <td className='text-start text-sm text-gray-500 p-2 '>
-                                                    {order.totalAmount.toLocaleString('en-In', { style: 'currency', currency: 'INR' })}
-                                                </td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-
+                            <div className='grid gap-4'>
+                                {dashboardData && dashboardData?.data?.recentOrders?.map((order) => (
+                                    <Link key={order._id} href={WEBSITE_ORDER_DETAILS(order.order_id)} className='block'>
+                                        <div className='border rounded p-4 hover:bg-gray-50 hover:shadow-sm transition-all cursor-pointer'>
+                                            <div className='flex items-center justify-between mb-3'>
+                                                <span className='text-xs text-gray-400 font-mono'>{order.order_id}</span>
+                                                <span className='text-sm font-semibold'>
+                                                    {order.totalAmount.toLocaleString('en-IN', { style: 'currency', currency: 'INR' })}
+                                                </span>
+                                            </div>
+                                            <div className='flex items-center gap-3 overflow-x-auto'>
+                                                {order.products.map((product, idx) => (
+                                                    <div key={idx} className='flex items-center gap-2 flex-shrink-0'>
+                                                        <Image
+                                                            src={product.variantId?.media?.[0]?.secure_url || imgPlaceholder.src}
+                                                            width={40}
+                                                            height={40}
+                                                            alt={product.name}
+                                                            className='rounded object-cover w-[40px] h-[40px] border'
+                                                        />
+                                                        <div className='min-w-0'>
+                                                            <p className='text-sm font-medium line-clamp-1'>{product.name}</p>
+                                                            <p className='text-xs text-gray-500'>Qty: {product.qty}</p>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </Link>
+                                ))}
                             </div>
                         </div>
 

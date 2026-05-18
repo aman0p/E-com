@@ -1,3 +1,4 @@
+import { isAuthenticated } from "@/lib/authentication";
 import { orderNotification } from "@/email/orderNotification";
 import { connectDB } from "@/lib/databaseConnection";
 import { catchError, response } from "@/lib/helperFunction";
@@ -10,6 +11,13 @@ import { z } from "zod";
 export async function POST(request) {
     try {
         await connectDB()
+
+        // Verify user is authenticated before saving order
+        const auth = await isAuthenticated('user')
+        if (!auth.isAuth) {
+            return response(false, 401, 'Unauthorized. Please login to place an order.')
+        }
+
         const payload = await request.json()
 
         const productSchema = z.object({

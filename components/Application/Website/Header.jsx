@@ -3,7 +3,7 @@ import { USER_DASHBOARD, WEBSITE_HOME, WEBSITE_LOGIN, WEBSITE_SHOP } from '@/rou
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import logo from '@/public/assets/images/Logo-White.png'
+import logo from '@/public/assets/images/NewLogo.png'
 import { IoIosSearch } from "react-icons/io";
 import Cart from './Cart'
 import { VscAccount } from "react-icons/vsc";
@@ -29,7 +29,7 @@ const Header = () => {
                         width={383}
                         height={146}
                         alt='logo'
-                        className='lg:w-32 w-24'
+                        className='lg:w-[6.5rem] w-[4.8rem]'
                     />
                 </Link>
 
@@ -44,7 +44,7 @@ const Header = () => {
                                 width={383}
                                 height={146}
                                 alt='logo'
-                                className='lg:w-32 w-24'
+                                className='lg:w-[6.5rem] w-[4.8rem]'
                             />
 
                             <button type='button' onClick={() => setIsMobileMenu(false)} >
@@ -92,7 +92,7 @@ const Header = () => {
                                 size={25}
                             />
                         </button>
-
+                    
                         <Cart />
 
                         {!auth
